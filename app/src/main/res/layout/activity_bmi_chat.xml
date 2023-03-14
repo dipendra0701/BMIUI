@@ -12,6 +12,6 @@
         android:id="@+id/bmichart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/img_1" />
+        android:src="@drawable/img_5" />
 
 </RelativeLayout>

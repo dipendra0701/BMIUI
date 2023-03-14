@@ -59,7 +59,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginLeft="130dp"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.MyApp.TextInputLayout.Rounded"
-app:cornerRadius="50dp"
+        app:cornerRadius="50dp"
         android:textSize="20dp"
         android:textStyle="bold"
         android:textAllCaps="true"

@@ -1,12 +1,16 @@
 package com.example.bmicalc_muinew
 
 import android.content.Intent
+import android.content.pm.PackageManager.PERMISSION_GRANTED
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.MenuCompat
 import com.example.bmicalc_muinew.databinding.ActivityMainBinding
 
@@ -56,15 +60,63 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 return true
             }
             R.id.item3 ->{
+
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.indi.ie/fact-sheets/healthy-eating,-healthy-weight-and-dieting/435-all-about-body-mass-index.html"))
+
+                //Toast.makeText(this," want to know developer", Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+                return true
+            }
+
+            R.id.item6 ->{
+                //Toast.makeText(this,"call",Toast.LENGTH_SHORT).show()
+                if (ContextCompat.checkSelfPermission(
+                        this,
+                        android.Manifest.permission.CALL_PHONE
+                    ) == PERMISSION_GRANTED
+                ) {
+                    val intent = Intent(Intent.ACTION_CALL)
+                    intent.data = Uri.parse("tel:7505661492")
+                    startActivity(intent)
+                } else {
+                    ActivityCompat.requestPermissions(
+                        this,
+                        arrayOf(android.Manifest.permission.CALL_PHONE),
+                        1001
+                    )
+                }
+            }
+
+
+            R.id.item5 ->{
                 finish()
                 System.exit(0)
                 Toast.makeText(this,"Exit", Toast.LENGTH_SHORT).show()
                 return true
             }
+            R.id.item7 -> {
+
+
+                val intent = Intent(Intent.ACTION_SENDTO).apply {
+                    data = Uri.parse("mailto:") // only email apps should handle this
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf("pandeydipendra678@gmail.com"))
+                }
+                startActivity(intent)
+//                    if (intent.resolveActivity(packageManager) != null) {
+//                        startActivity(intent)
+//                    }else{
+//                        Toast.makeText(this,"not app found",Toast.LENGTH_SHORT).show()
+//                    }
+            }
 
         }
+
+
         return super.onOptionsItemSelected(item)
     }
+
+
+
     override fun onClick(view: View) {
         when (view?.id) {
             R.id.btnCal -> {
@@ -138,6 +190,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                                 }
                             }
                         }
+
 
                     }
 

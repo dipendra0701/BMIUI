@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/item1"
-        android:title="About Aap"
+        android:title="About App"
 
         />
     <item
@@ -12,6 +12,28 @@
         />
     <item
         android:id="@+id/item3"
+        android:title="Want to know more about BMI?"
+
+        />
+    <item
+        android:id="@+id/item4"
+        android:title="Contact the Developer">
+
+        <menu>
+
+            <item
+                android:id="@+id/item6"
+                android:title=" Via Call"
+                />
+            <item
+                android:id="@+id/item7"
+                android:title="Via Mail"
+                />
+        </menu>
+
+        </item>
+    <item
+        android:id="@+id/item5"
         android:title="Exit"
 
         />
