@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -59,14 +60,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
                 return true
             }
-            R.id.item3 ->{
-
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.indi.ie/fact-sheets/healthy-eating,-healthy-weight-and-dieting/435-all-about-body-mass-index.html"))
-
-                //Toast.makeText(this," want to know developer", Toast.LENGTH_SHORT).show()
+            R.id.item3->{
+                val intent = Intent(this, more_about_BMI::class.java)
                 startActivity(intent)
                 return true
             }
+//            R.id.item3 ->{
+//
+//                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.indi.ie/fact-sheets/healthy-eating,-healthy-weight-and-dieting/435-all-about-body-mass-index.html"))
+//
+//                //Toast.makeText(this," want to know developer", Toast.LENGTH_SHORT).show()
+//                startActivity(intent)
+//                return true
+//            }
 
             R.id.item6 ->{
                 //Toast.makeText(this,"call",Toast.LENGTH_SHORT).show()
@@ -94,6 +100,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this,"Exit", Toast.LENGTH_SHORT).show()
                 return true
             }
+
             R.id.item7 -> {
 
 
@@ -113,6 +120,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        val builder= AlertDialog.Builder(this)
+        builder.setMessage("Do you want to exit ?")
+        builder.setTitle("Warning !")
+        builder.setCancelable(false)
+        builder.setPositiveButton("Yes")
+        {
+                dialog, which-> finish()
+        }
+        builder.setNegativeButton("No")
+        { dialog, which -> dialog.cancel()
+        }
+
+        val alertDialog = builder.create()
+        alertDialog.show()
     }
 
 
