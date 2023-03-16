@@ -194,6 +194,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                                     )
                                         .show()
                                     binding.txtMsg.text = resources.getString(R.string.strOverweight)
+                                        binding.main.setBackgroundColor(resources.getColor(R.color.colorRed))
                                 } else if (bmi < 18) {
                                     Toast.makeText(
                                         this@MainActivity,
@@ -202,14 +203,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                                     )
                                         .show()
                                     binding.txtMsg.text = resources.getString(R.string.strUnderweight)
+                                    binding.main.setBackgroundColor(resources.getColor(R.color.colorRed))
+
                                 } else if (bmi > 18 && bmi < 25) {
                                     Toast.makeText(this@MainActivity, R.string.strHealthy, Toast.LENGTH_SHORT)
                                         .show()
                                     binding.txtMsg.text = resources.getString(R.string.strHealthy)
+                                    binding.main.setBackgroundColor(resources.getColor(R.color.colorGreen))
+
                                 }
                                 else {
                                     Toast.makeText(this@MainActivity, R.string.strinvalid, Toast.LENGTH_LONG).show()
                                     binding.txtMsg.text = resources.getString(R.string.strinvalid)
+
 
                                 }
                             }
