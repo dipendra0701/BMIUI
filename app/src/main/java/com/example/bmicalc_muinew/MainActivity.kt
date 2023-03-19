@@ -1,5 +1,6 @@
 package com.example.bmicalc_muinew
 
+import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.net.Uri
@@ -14,6 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuCompat
 import com.example.bmicalc_muinew.databinding.ActivityMainBinding
+import com.example.bmicalc_muinew.databinding.ActivityRatingBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -99,6 +101,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 System.exit(0)
                 Toast.makeText(this,"Exit", Toast.LENGTH_SHORT).show()
                 return true
+            }
+            R.id.item8 ->{
+                val ratingActivity = ActivityRatingBinding.inflate(layoutInflater)
+                val dialog = Dialog(this)
+                dialog.setContentView(ratingActivity.root)
+                dialog.setCancelable(true)
+                dialog.show()
             }
 
             R.id.item7 -> {
